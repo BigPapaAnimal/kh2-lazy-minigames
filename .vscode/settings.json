@@ -1,0 +1,13 @@
+{
+    "Lua.diagnostics.globals": [
+        "GAME_ID",
+        "ENGINE_VERSION",
+        "ENGINE_TYPE",
+        "ConsolePrint",
+        "ReadByte",
+        "WriteByte",
+        "WriteLong",
+        "WriteShort",
+        "WriteInt"
+    ]
+}
