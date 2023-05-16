@@ -1,0 +1,7 @@
+assets:
+- method: copy
+  name: scripts/kh2-lazy-minigames.lua
+  source:
+  - name: kh2-lazy-minigames.lua
+description: Makes Atlantica minigames and Hunny Slider (Rabbit's House) minigames impossible to fail
+title: Lazy Minigames
