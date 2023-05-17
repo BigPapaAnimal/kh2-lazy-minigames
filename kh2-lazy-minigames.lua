@@ -2,6 +2,7 @@ local LUABACKEND_OFFSET = 0x56454E
 local CURRENT_LOCATION_ADDRESS = 0x0714DB8
 local ATLANTICA_WORLD_ID = 0x0B
 local HUNDRED_ACRE_WORLD_ID = 0x09
+local HUNDRED_ACRE_THE_HONEY_HUNT_ID = 0x07
 
 local canExecute = false
 
@@ -29,6 +30,7 @@ end
 
 function _OnFrame()
     local world = read(CURRENT_LOCATION_ADDRESS + 0x00)
+    local room = read(CURRENT_LOCATION_ADDRESS + 0x01)
     if canExecute and world == ATLANTICA_WORLD_ID then
         local finnyFunScore = 0xB63584 -- counts down from 5 to 0, anything below 5 passes
         local excellentChainScore = 0xB63578 -- maximum number of excellents in a row, reset each song
@@ -42,7 +44,7 @@ function _OnFrame()
         write(excellentChainScore, CHAIN_MAX)
         write(atlanticaPoints, POINTS_MAX, true)
     end
-    if canExecute and world == HUNDRED_ACRE_WORLD_ID then
+    if canExecute and world == HUNDRED_ACRE_WORLD_ID and room == HUNDRED_ACRE_THE_HONEY_HUNT_ID then
         local pointsAddress = 0x2A0D148 -- used by hunny slider HP
         local hunnyPointsMax = 99
 
